@@ -8,11 +8,6 @@
 
 (require 'package)
 
-;; 行番号表示
-(global-linum-mode t)
-(setq linum-format "%4d|")
-
-(column-number-mode t)
 
 ;; バックアップファイルを作らない
 (setq make-backup-files nil)
@@ -22,9 +17,19 @@
 
 (blink-cursor-mode t)
 
-(menu-bar-mode 0)
+(defface hlline-face
+  '((((class color)
+      (background dark))
+     (:background "dark slate gray"))
+    (((class color)
+      (background light))
+     (:background "#98FB98"))
+    (t
+     ()))
+  "*Face used by hl-line.")
+(setq hl-line-face 'hlline-face)
 
-(line-number-mode t)
-
-(global-hl-line-mode t)
 (package-initialize)
+
+(electric-pair-mode 1)
+
