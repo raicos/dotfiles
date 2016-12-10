@@ -19,6 +19,7 @@ cdpath=(~)
 ## if directory changed, display directory stacks.
 chpwd_functions=($chpwd_functions dirs)
 
+export XDG_CONFIG_HOME=~/.config
 
 ### History
 ## file it saves history
