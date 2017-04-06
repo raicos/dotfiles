@@ -1,10 +1,25 @@
 ### Zsh rc
 
+# -*- zplug -*-
 source ~/.zplug/init.zsh
 
 zplug "sorin-ionescu/prezto"
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-syntax-highlighting"
+
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf 'Install? [y/N]: '
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load --verbose
 
 # -*- sh -*-
+export XDG_CONFIG_HOME=~/.config
 
 ### key bind
 # Emacs style
@@ -23,7 +38,6 @@ cdpath=(~)
 ## if directory changed, display directory stacks.
 chpwd_functions=($chpwd_functions dirs)
 
-export XDG_CONFIG_HOME=~/.config
 
 ### History
 ## file it saves history
@@ -290,13 +304,4 @@ fi
 
 
 
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf 'Install? [y/N]: '
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-zplug load --verbose
 
