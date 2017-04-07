@@ -5,8 +5,9 @@ source ~/.zplug/init.zsh
 
 zplug "sorin-ionescu/prezto"
 zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-syntax-highlighting"
-
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "yous/vanilli.sh"
+zplug "yous/lime"
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -22,38 +23,25 @@ zplug load --verbose
 export XDG_CONFIG_HOME=~/.config
 
 ### key bind
-# Emacs style
 bindkey -e
-# vi style
-#bindkey -v
+# bindkey -v
 
-### Directory Movings
-## change directory only directory_name
-setopt auto_cd
-## cd -> pushd
-setopt auto_pushd
-## if specified directory is not found in current dir, 
-## next is used.
 cdpath=(~)
-## if directory changed, display directory stacks.
 chpwd_functions=($chpwd_functions dirs)
 
+### cd 
+setopt auto_cd
+setopt auto_pushd
+setopt pushd_ignore_dups
 
 ### History
-## file it saves history
 HISTFILE=~/.zsh_history
-## History Counts
-HISTSIZE=10000
+HISTSIZE=100000
 SAVEHIST=$HISTSIZE
-## save with times
 setopt extended_history
-## don't save same command done prev.
 setopt hist_ignore_space
-## save immedoately
 setopt inc_append_history
-## use same history in many processes
 setopt share_history
-## Don't use C-s/C-q
 setopt no_flow_control
 
 ### Prompt
@@ -64,6 +52,9 @@ setopt prompt_percent
 ## Vanish Right PROMPT in Command Moving
 setopt transient_rprompt
 
+alias ls='ls -G'
+alias la='ls -aG'
+alias ll='ls -lG'
 ### generate 16bit color
 color256()
 {
@@ -232,76 +223,4 @@ if [ -e /usr/bin/gvim ]; then
 else
     alias gvi="vi"
 fi
-
-### ls and ps
-## ls <- color, if you can GNU ls
-## la <- only ls
-## ps : only self processes
-case $(uname) in
-	*BSD|Darwin)
-		if [ -x "$(which gnuls)" ]; then
-			alias ls="gnuls -lhAF --color=auto"
-			alias la="gnuls"
-            alias ll="gnuls -alhAF --color=auto"
-		else
-			alias la="ls -lhAFG"
-            alias ll="ls -alhAFG"
-        fi
-		#alias ps="ps -fU$(whoami)"
-		alias ps="ps -f"
-		;;
-	SunOS)
-		if [ -x "`which gls`" ]; then
-			alias la='gnuls'
-			alias ls="gnuls -lhAF --color=auto"
-            alias ll="gnuls -alhAF --color=auto"
-		else
-			alias la="ls -lhAF"
-            alias ll="ls -alhAF"
-        fi
-		alias ps="ps -fl -u$(/usr/xpg4/bin/id -un)"
-		;;
-	*)
-        alias ls="ls --color=auto"
-		alias la="ls -hAF --color=auto"
-        alias ll="ls -alAF --color=auto"
-		alias ps="ps -fU$(whoami) --forest"
-esac
-
-### Window Title
-## display "command, user, host, cwd"
-update_title() {
-	local command_line=
-	typeset -a command_line
-	command_line=${(z)2}
-	local command=
-	if [ ${(t)command_line} = "array-local" ]; then
-		command=$command_line[1]
-	else
-		command="%2"
-	fi
-	print -n -P "\e]2"
-	echo -n "(${command})"
-	print -n -P " %n@%m:%~\a"
-}
-
-### Language and Locale
-## in linux term, cannot display cjk
-case ${TERM} in
-    linux)
-        export LANG=en_US.UTF-8
-        ;;
-    *)
-        export LANG=ja_JP.UTF-8
-esac
-
-## on X, change Title
-if [ -n "$DISPLAY" ]; then
-	preexex_functions=($preexec_functions update_title)
-	
-fi
-
-
-
-
 
