@@ -55,58 +55,6 @@ setopt transient_rprompt
 alias ls='ls -G'
 alias la='ls -aG'
 alias ll='ls -lG'
-### generate 16bit color
-color256()
-{
-	local red=$1;shift
-	local green=$2; shift
-	local blue=$3; shift
-
-	echo -n $[$red * 36 + $green * 6 + $blue + 16]
-}
-
-fg256()
-{
-	echo -n $'\e[38;5;'$(color256 "$@")"m"
-}
-
-bg256()
-{
-	echo -n $'\e[48;5;'$(color256 "$@")"m"
-}
-
-
-export ZSH_LEVEL=`expr ${ZSH_LEVEL:=0} + 1`
-alias nest="echo $ZSH_LEVEL"
-###############################################################
-### PROMPT Strings
-################################################################
-## %{%B%}...%{%b%} : BOLD
-## %{%F{cyan}%} ... %{%f%} : cyan(color - fg)
-## %{%K{cyan}%} ... %{%k%} : cyan(color - bg)
-## %n : HOST NAME
-## %m : SHORT HOST NAME
-## %(x.(true_text).(false_text)) : if-statement of x.
-## ? : last command's returns (Success: 0, Failed: another)
-## %? : last command's returns (FULL)
-## %D{...} : Date.
-## 	%Y : Year.
-##	%m : month.
-##	%d : day.
-##	%H : Hour.
-##	%M : Minutes.
-################################################################
-if [ $ZSH_LEVEL -eq 1 ]; then
-    zshlevel=""
-else
-    zshlevel="%{%U%}`nest`%{%u%}"
-fi
-lprompt_self="%{%F{green}%}%n@%m%{%f%} %{%F{cyan}%}%~ `echo $zshlevel`$ %{%f%}"
-rprompt_self="%(?.%{%F{green}%}[%?]%{%f%}.%{%F{red}%}[%?]%{%f%}"
-
-PROMPT=$lprompt_self
-RPROMPT=$rprompt_self
-
 
 ### Complement
 ## Initialize Complements
@@ -207,20 +155,4 @@ alias mv="mv -i"
 ## shortcut for pushd/popd
 alias pd="pushd"
 alias po="popd"
-
-alias tw="~/.gem/ruby/2.1.0/bin/tw"
-
-alias telcot="cocot -p sjis -t utf-8 -- "
-
-alias e="TERM=xterm-256color /Applications/Emacs.app/Contents/MacOS/Emacs -nw"
-### vim
-if [ -n `which vim` ]; then
-    alias vi="vim"
-fi
-
-if [ -e /usr/bin/gvim ]; then
-    alias gvi="gvim"
-else
-    alias gvi="vi"
-fi
 
