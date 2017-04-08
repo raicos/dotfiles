@@ -7,7 +7,9 @@ zplug "sorin-ionescu/prezto"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "yous/vanilli.sh"
-zplug "yous/lime"
+zplug "mafredri/zsh-async", from:github
+zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+#zplug "yous/lime"
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -58,8 +60,8 @@ alias ll='ls -lG'
 
 ### Complement
 ## Initialize Complements
-autoload -U compinit
-compinit
+#autoload -U compinit
+#compinit
 
 ## to Grouped
 ## How to display.

@@ -1,5 +1,6 @@
 set number
 set noswapfile
+set laststatus=2
 
 inoremap <silent> jj <ESC>
 inoremap <silent> <C-j> j
