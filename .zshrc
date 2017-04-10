@@ -54,6 +54,7 @@ setopt prompt_percent
 ## Vanish Right PROMPT in Command Moving
 setopt transient_rprompt
 
+alias vim='nvim'
 alias ls='ls -G'
 alias la='ls -aG'
 alias ll='ls -lG'
