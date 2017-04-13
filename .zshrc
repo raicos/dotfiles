@@ -31,6 +31,13 @@ bindkey -e
 cdpath=(~)
 chpwd_functions=($chpwd_functions dirs)
 
+### vsc
+autoload -Uz vsc_info
+zstyle ':vsc_info:*' enable git svn hg
+zstyle ':vsc_info:*' formats '(%s)[%b] '
+zstyle ':vsc_info:*' actionformats '(%s)[%b|%a] '
+zstyle ':vsc_info:svn:*' branchformat '%b:r%r'
+
 ### cd 
 setopt auto_cd
 setopt auto_pushd
