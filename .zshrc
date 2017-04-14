@@ -9,7 +9,7 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "yous/vanilli.sh"
 zplug "mafredri/zsh-async", from:github
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
-#zplug "yous/lime"
+#zplug "zsh-users/zsh-autosuggestions"
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -38,13 +38,7 @@ zstyle ':vsc_info:*' formats '(%s)[%b] '
 zstyle ':vsc_info:*' actionformats '(%s)[%b|%a] '
 zstyle ':vsc_info:svn:*' branchformat '%b:r%r'
 
-### cd 
-setopt auto_cd
-setopt auto_pushd
-setopt pushd_ignore_dups
-
 ### History
-HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=$HISTSIZE
 setopt extended_history
