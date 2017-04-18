@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DOT_FILES=(.zshrc .config)
+DOT_FILES=(.zshrc .config .tmux.conf)
 
 for file in ${DOT_FILES[@]}
 do
