@@ -9,13 +9,21 @@ hook_add = 'let g:deoplete#enable_at_startup = 1'
 repo = 'thinca/vim-quickrun'
 
 [[plugins]]
-repo = 'zchee/deoplete-jedi'
-
-[[plugins]]
 repo = 'scrooloose/nerdtree'
+hook_add = '''
+  nnoremap [nerdtree] <nop>
+  nmap <Space>n [nerdtree]
+  nnoremap <silent>[nerdtree]n :NERDTreeToggle<CR>
+  nnoremap <silent>[nerdTree]f :NERDTreeFind<CR>
+'''
 
 [[plugins]]
 repo = 'Lokaltog/vim-easymotion'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'vim-scripts/vim-auto-save'
+hook_add = 'let g:auto_save = 1'
+

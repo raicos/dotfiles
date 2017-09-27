@@ -1,3 +1,10 @@
+inoremap <C-c> <Esc>
+noremap <S-h> ^
+noremap <S-l> $
+
+inoremap { {}<Left>
+inoremap ( ()<Left>
+
 set number
 set noswapfile
 set laststatus=2
@@ -10,7 +17,18 @@ inoremap <silent> <C-k> k
 filetype indent on
 set tabstop=2
 set shiftwidth=2
+set softtabstop=2
+set autoindent
+set smartindent
 set expandtab
+
+if has('nvim')
+  nnoremap @t :tabe<CR>:terminal<CR>
+  tnoremap <C-q> <C-\><C-n>:q<CR>
+  tnoremap <ESC> <C-\><C-n>
+  tnoremap <C-l> <C-\><C-n>gt
+  tnoremap <C-h> <C-\><C-n>gT
+endif
 
 " プラグインがインストールされるディレクトリ
 let s:dein_dir = expand('~/.cache/dein')
@@ -30,7 +48,6 @@ if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
 
     " プラグインリストを収めた toml ファイル
-    " 予め toml ファイルを用意しておく
     let g:rc_dir = expand("~/.config/nvim/")
     let s:toml = g:rc_dir . 'dein.toml'
     let s:lazy_toml = g:rc_dir . 'dein_lazy.toml'
