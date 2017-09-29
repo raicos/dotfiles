@@ -24,6 +24,7 @@ zplug load --verbose
 # -*- sh -*-
 export XDG_CONFIG_HOME=~/.config
 #export TERM=xterm-color256
+export PATH="/Users/k15046kk/anaconda3/bin:$PATH"
 
 ### key bind
 bindkey -e
@@ -61,6 +62,8 @@ alias vim='nvim'
 alias ls='ls -G'
 alias la='ls -aG'
 alias ll='ls -lG'
+alias python='python3'
+alias pip='pip3'
 
 ### Complement
 ## Initialize Complements
