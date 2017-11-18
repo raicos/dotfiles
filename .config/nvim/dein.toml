@@ -23,7 +23,7 @@ repo = 'Lokaltog/vim-easymotion'
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 
-[[plugins]]
-repo = 'vim-scripts/vim-auto-save'
-hook_add = 'let g:auto_save = 1'
+# [[plugins]]
+# repo = 'vim-scripts/vim-auto-save'
+# hook_add = 'let g:auto_save = 1'
 

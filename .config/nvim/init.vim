@@ -9,18 +9,24 @@ set number
 set noswapfile
 set laststatus=2
 
-inoremap <silent> jj <ESC>
-inoremap <silent> <C-j> j
-inoremap <silent> kk <ESC> 
-inoremap <silent> <C-k> k
 
 filetype indent on
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set autoindent
-set smartindent
-set expandtab
+"set tabstop=2
+"set shiftwidth=2
+"set softtabstop=2
+"set autoindent
+"set smartindent
+"set expandtab
+
+" move map
+noremap <silent> j gj
+noremap <silent> k gk
+inoremap <silent> <C-j> <Down>
+inoremap <silent> <C-k> <Up>
+inoremap <silent> <C-h> <Left>
+inoremap <silent> <C-l> <Right>
+noremap <silent> <C-j> <C-d>
+noremap <silent> <C-k> <C-u>
 
 if has('nvim')
   nnoremap @t :tabe<CR>:terminal<CR>
@@ -65,4 +71,3 @@ endif
 if dein#check_install()
     call dein#install()
 endif
-
