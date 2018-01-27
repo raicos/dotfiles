@@ -1,6 +1,7 @@
 inoremap <C-c> <Esc>
 noremap <S-h> ^
 noremap <S-l> $
+noremap <Esc><Esc> :noh<CR>
 
 inoremap { {}<Left>
 inoremap ( ()<Left>
