@@ -30,3 +30,12 @@ hook_add = '''
   nnoremap <silent> [previm]o :<C-u>PrevimOpen<CR>
 '''
 on_ft = 'markdown'
+
+[[plugins]]
+repo = "OmniSharp/omnisharp-vim"
+on_ft = 'cs'
+build = "xbuild server/OmniSharp.sln"
+
+[[plugins]]
+repo = 'Robzz/deoplete-omnisharp'
+on_source = 'deoplete.nvim'

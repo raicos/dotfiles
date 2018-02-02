@@ -1,23 +1,25 @@
-inoremap <C-c> <Esc>
-noremap <S-h> ^
-noremap <S-l> $
-noremap <Esc><Esc> :noh<CR>
+set fenc=utf-8
 
-inoremap { {}<Left>
-inoremap ( ()<Left>
+let mapleader = "\<space>"
 
 set number
 set noswapfile
 set laststatus=2
 
-
 filetype indent on
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set autoindent
 set smartindent
 set expandtab
+
+" key map
+inoremap <C-c> <Esc>
+noremap <S-h> ^
+noremap <S-l> $
+noremap <Esc><Esc> :noh<CR>
+nnoremap <Leader>w :w<CR>
 
 " move map
 noremap <silent> j gj
@@ -25,7 +27,7 @@ noremap <silent> k gk
 inoremap <silent> <C-j> <Down>
 inoremap <silent> <C-k> <Up>
 inoremap <silent> <C-h> <Left>
-inoremap <silent> <C-l> <Right>
+inoremap <silent> <C-l> <C-g>U<Right>
 noremap <silent> <C-j> <C-d>
 noremap <silent> <C-k> <C-u>
 
