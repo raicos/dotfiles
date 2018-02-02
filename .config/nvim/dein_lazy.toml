@@ -31,11 +31,13 @@ hook_add = '''
 '''
 on_ft = 'markdown'
 
-[[plugins]]
-repo = "OmniSharp/omnisharp-vim"
-on_ft = 'cs'
-build = "xbuild server/OmniSharp.sln"
+#------------  C# わかりません  ------------#
 
-[[plugins]]
-repo = 'Robzz/deoplete-omnisharp'
-on_source = 'deoplete.nvim'
+#[[plugins]]
+#repo = 'OmniSharp/omnisharp-vim'
+#on_ft = 'cs'
+#build = "xbuild server/OmniSharp.sln"
+
+#[[plugins]]
+#repo = 'Robzz/deoplete-omnisharp'
+

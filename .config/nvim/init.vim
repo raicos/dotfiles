@@ -39,6 +39,10 @@ if has('nvim')
   tnoremap <C-h> <C-\><C-n>gT
 endif
 
+let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/usr/local/bin/python2.7'
+
+
 " プラグインがインストールされるディレクトリ
 let s:dein_dir = expand('~/.cache/dein')
 " dein.vim 本体
