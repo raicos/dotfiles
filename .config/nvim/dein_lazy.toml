@@ -40,6 +40,9 @@ on_ft = 'toml'
 repo = 'OmniSharp/omnisharp-vim'
 on_ft = 'cs'
 build = "xbuild server/OmniSharp.sln"
+hook_add = '''
+autocmd FileType cs set omnifunc=OmniSharp#Complete
+'''
 
 [[plugins]]
 repo = 'Robzz/deoplete-omnisharp'

@@ -6,6 +6,7 @@ set number
 set noswapfile
 set laststatus=2
 
+filetype on
 filetype indent on
 set tabstop=4
 set shiftwidth=4
