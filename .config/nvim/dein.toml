@@ -11,8 +11,7 @@ repo = 'thinca/vim-quickrun'
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
-  nnoremap [nerdtree] <nop>
-  nmap <Space>n [nerdtree]
+  nmap <Leader>n [nerdtree]
   nnoremap <silent>[nerdtree]n :NERDTreeToggle<CR>
   nnoremap <silent>[nerdTree]f :NERDTreeFind<CR>
 '''
@@ -42,6 +41,8 @@ repo = 'itchyny/lightline.vim'
 [[plugins]]
 repo = 'cohama/lexima.vim'
 on_i = 1
+
+
 
 # [[plugins]]
 # repo = 'vim-scripts/vim-auto-save'
