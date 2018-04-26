@@ -2,6 +2,8 @@ set fenc=utf-8
 
 let mapleader = "\<space>"
 
+set mouse=a
+
 set number
 set noswapfile
 set laststatus=2
