@@ -161,6 +161,10 @@ alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
 
+## git
+alias gl='git log --graph'
+alias gc='git checkout'
+
 ## shortcut for pushd/popd
 alias pd="pushd"
 alias po="popd"
