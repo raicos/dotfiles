@@ -48,3 +48,11 @@ autocmd FileType cs set omnifunc=OmniSharp#Complete
 repo = 'Robzz/deoplete-omnisharp'
 on_ft = 'cs'
 
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html', 'css', 'scss']
+hook_add = '''
+let g:user_emmet_leader_key = '<C-E>'
+'''
+
+
