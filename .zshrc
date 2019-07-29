@@ -24,7 +24,7 @@ zplug load --verbose
 # -*- sh -*-
 export XDG_CONFIG_HOME=~/.config
 #export TERM=xterm-color256
-export PATH="/Users/k15046kk/anaconda3/bin:$PATH"
+export PATH="/Users/shoma/anaconda3/bin:$PATH"
 
 ### key bind
 bindkey -e

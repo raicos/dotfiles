@@ -17,6 +17,8 @@ set autoindent
 set smartindent
 set expandtab
 
+set clipboard=unnamed
+
 " key map
 inoremap <C-c> <Esc>
 noremap <S-h> ^
@@ -42,8 +44,8 @@ if has('nvim')
   tnoremap <C-h> <C-\><C-n>gT
 endif
 
-" let g:python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5'
-" let g:python_host_prog = '/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7'
+let g:python3_host_prog = '/anaconda3/bin/python3'
+let g:python_host_prog = '/usr/local/bin/python2'
 
 
 " プラグインがインストールされるディレクトリ
